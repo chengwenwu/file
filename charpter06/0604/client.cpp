@@ -14,8 +14,8 @@ int MySend( int iSock, char * pchBuf, size_t tLen){
                return(0);
         while(iSended<tLen){
               do{
-                     iThisSend = send(iSock, pchBuf, tLen-iSended, 0);
-              } while((iThisSend<0) && (errno==EINTR));
+                     iThisSend = send(iSock, pchBuf, tLen-iSended, 0);//这里是非阻塞屌用
+              } while((iThisSend<0) && (errno==EINTR));//等它第一次发送完成
                if(iThisSend < 0){
                       return(iSended);
               }
@@ -52,7 +52,7 @@ int main( int argc, char * argv[]){
     printf("tLen:%d\n" ,tLen);
     int iLen=0;
     char * pBuff= new char [100];
-    *(int*)(pBuff+iLen)= htonl(tLen);
+    *(int*)(pBuff+iLen)= htonl(tLen);//将int类型转换为网络字节序
     iLen+=sizeof( int);
     memcpy(pBuff+iLen,sendMsg,tLen);
     iLen+=tLen;

@@ -15,7 +15,8 @@ int main( int argc, char ** argv){
     int sockfd,acceptfd; /* 监听socket: sock_fd,数据传输socket: acceptfd */
     struct sockaddr_in my_addr; /* 本机地址信息 */
     struct sockaddr_in their_addr; /* 客户地址信息 */
-    unsigned int sin_size, myport=6666, lisnum=10;
+    unsigned int  myport=6666, lisnum=10;
+    socklen_t sin_size;
     if ((sockfd = socket(AF_INET , SOCK_STREAM, 0)) == -1) {
        perror("socket" );
        return -1;
