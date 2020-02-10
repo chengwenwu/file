@@ -7,7 +7,7 @@ import datetime
 
 def send_mail(recv):
     username='2252074916@qq.com'
-    passwd='shwrqntcnlfudhjh'
+    passwd='xxxxxxxxx'
     title='Dream注册验证码邮件'
     content='【Dream】您的验证码为'+''.join(random.sample('0123456789',4))+"，(10分钟内有效)，为了账户安全请勿向他人提供该验证码。感谢使用Dream！\n\n本邮件是系统自动发送，请勿直接回复！"
     ssl=True
